@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/dbConnect';
+import { dbConnect } from '@/lib/dbConnect';
 import Physician from '@/models/Physician';
+import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
