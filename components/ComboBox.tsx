@@ -1,3 +1,4 @@
+// components/ComboBox.tsx
 "use client";
 
 import * as React from "react";
@@ -12,11 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface ComboBoxProps {
   onSelect: (value: string) => void;
@@ -34,7 +31,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ onSelect }) => {
       const response = await fetch(`/api/physicians?name=${query}`);
       const data = await response.json();
       if (data.success) {
-        setOptions(data.data.map((physician: { _id: string, name: string }) => ({
+        setOptions(data.data.map((physician: { _id: string; name: string }) => ({
           value: physician._id,
           label: physician.name,
         })));
