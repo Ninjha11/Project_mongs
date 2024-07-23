@@ -40,5 +40,8 @@
   "compilerOptions": {
     "types": ["node"],
     "typeRoots": ["./types"]
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
