@@ -52,7 +52,7 @@ export default function Home() {
       {isDrawerOpen && (
         <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
           <div className="p-4">
-            <h2 className="text-lg font-bold text-center mb-3 text-black">Type Physician's Name to Add</h2>
+            <h2 className="text-lg font-bold text-center mb-3 text-black">Type Physician&apos;s Name to Add</h2>
             <input
               type="text"
               className="w-full p-2 border border-gray-300 rounded text-black"
