@@ -1,5 +1,6 @@
+"use client";
+
 import * as React from "react";
-import { InputHTMLAttributes } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
@@ -15,12 +17,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-interface CommandInputProps extends InputHTMLAttributes<HTMLInputElement> {}
-
-const CommandInput: React.FC<CommandInputProps> = ({ ...props }) => {
-  return <input {...props} className={cn("command-input", props.className)} />;
-};
 
 interface ComboBoxProps {
   onSelect: (value: string) => void;
