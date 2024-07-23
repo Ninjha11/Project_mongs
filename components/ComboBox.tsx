@@ -1,19 +1,17 @@
-// components/ComboBox.tsx
 "use client";
 
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
+import { Command, CommandEmpty, CommandGroup, CommandItem, CommandList } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+interface CommandInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const CommandInput: React.FC<CommandInputProps> = ({ onChange, ...props }) => {
+  return <input onChange={onChange} {...props} />;
+};
 
 interface ComboBoxProps {
   onSelect: (value: string) => void;
@@ -57,6 +55,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ onSelect }) => {
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("Input value:", event.target.value);  // Added for debugging
     setInputValue(event.target.value);
   };
 
@@ -79,7 +78,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ onSelect }) => {
           <CommandInput
             placeholder="Search physician..."
             value={inputValue}
-            onChange={handleInputChange}
+            onChange={handleInputChange}  // This is the onChange handler for the input
           />
           <CommandEmpty>No physician found.</CommandEmpty>
           <CommandList>
